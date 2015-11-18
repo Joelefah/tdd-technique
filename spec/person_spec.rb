@@ -27,6 +27,16 @@ describe "Person Class - entriies in phonebook" do
 		person.add_phone "02012345678"
 		expect(person.phone_numbers).to eq ["07712345678", "02012345678"]
 	end
+
+	it "should remove emails" do
+		person = Person.new("joe", "bloggs", "21-09-1992")
+
+		person.add_email "joe@foo.com" #
+		person.add_email "joe.bloggs@work.com"
+		person.remove_email(0)
+		expect(person.emails).to eq ["joe.bloggs@work.com"] 
+	end
 end
 
+ # => ["joe.bloggs@work.com"]
 	#organises tests

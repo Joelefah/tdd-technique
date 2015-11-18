@@ -21,4 +21,8 @@ class Person
 	def add_phone(phone_numbers)
 		@phone_numbers << phone_numbers
 	end
+
+	def remove_email(index_no)
+		emails.delete_at(index_no)
+	end
 end
