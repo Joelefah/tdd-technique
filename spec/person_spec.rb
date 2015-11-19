@@ -45,7 +45,7 @@ describe "Person Class - entriies in phonebook" do
       person.add_email "joe@foo.com"
       person.add_phone "07712345678"
       person.add_phone "02012345678"
-      expect(person.to_s).to eq "Joe Bloggs was born on 1990-01-01.\n Their email addresses are:
+      expect(person.to_s).to eq "Joe Bloggs was born on 1992-09-21.\n Their email addresses are:
 [\"joe@foo.com\"].\n Their phone numbers are [\"07712345678\", \"02012345678\"]"
   end
 end
