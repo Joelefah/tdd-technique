@@ -10,6 +10,7 @@ describe "Person Class - entriies in phonebook" do
  		expect(person.surname).to eq "Bloggs"
  		expect(person.full_name).to eq "Joe Bloggs"
  	end
+
  	it "should store and return email information" do #name of unit test
 		person = Person.new("joe", "bloggs", "21-09-1992")
 
@@ -36,6 +37,17 @@ describe "Person Class - entriies in phonebook" do
 		person.remove_email(0)
 		expect(person.emails).to eq ["joe.bloggs@work.com"] 
 	end
+
+	
+	it "should print personal details" do
+      person = Person.new("joe", "bloggs", "21-09-1992")
+
+      person.add_email "joe@foo.com"
+      person.add_phone "07712345678"
+      person.add_phone "02012345678"
+      expect(person.to_s).to eq "Joe Bloggs was born on 1990-01-01.\n Their email addresses are:
+[\"joe@foo.com\"].\n Their phone numbers are [\"07712345678\", \"02012345678\"]"
+  end
 end
 
  # => ["joe.bloggs@work.com"]
