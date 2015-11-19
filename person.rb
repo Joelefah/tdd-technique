@@ -36,9 +36,25 @@ class Person
 #{@emails}.\n Their phone numbers are #{@phone_numbers}"
 	end
 
-	def print_details 
-		puts @full_name
-      "#{full_name}\n ---------- \n Date of Birth: #{@dob.strftime('%d %B %Y')} \n\n Email Addresses:\n - #{emails.join(" \n- ")} \n\n Phone Numbers:\n #{phone_numbers.join}"
+	def print_details 			
+		
+		puts full_name 
+	    full_name.length.times {print '-'}
+	    puts "\nDate of Birth: " + dob.strftime('%m %B %Y')+"\n"
+	    puts "\nEmail Addresses: "
+	    emails.each do |address| puts "- " + address.to_s + "\n"
+	    end
+	    puts "\nPhone Numbers: "
+	    phone_numbers.each do |number| puts "- " + number.to_s + "\n"
+	    end
+	    puts "\n"
+
+		#puts @full_name
+		#10.times {print '-'}
+		#puts "\nDate of Birth: #{@dob.strftime('%d %B %Y')}"
+		#puts "\nEmail Addresses:\n- #{emails.join(" \n- ")} \n\nPhone Numbers:\n- #{phone_numbers.join(" \n- ")}"
+	
+      # "#{full_name}\n ---------- \n Date of Birth: #{@dob.strftime('%d %B %Y')} \n\n Email Addresses:\n - #{emails.join(" \n- ")} \n\n Phone Numbers:\n #{phone_numbers.join}"
     end
 end
 
