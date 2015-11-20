@@ -67,12 +67,13 @@ class FamilyMember < Person
 	end
 end
 
-class AddressBook < Person
-	def initialize (*args)
-		super(*args)
+class AddressBook 
+	attr_accessor :entries
+	def initialize 
+		@entries = []
 	end
 
-	def add
-
+	def add(person)
+		@entries << person
 	end
 end

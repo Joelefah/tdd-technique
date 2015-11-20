@@ -68,6 +68,21 @@ describe "FamilyMember class that inherits from Person" do
 	end
 end
 
+describe "Address book - entries" do
+		it "should print names of people in address book" do
+			person1 = Person.new("joe", "bloggs", "21-09-1992")
+			person2 = Person.new("Barry", "bloggs", "21-09-1992")
+			book = AddressBook.new
+
+			expect(book.entries).to eq []
+
+			book.add(person1)
+			book.add(person2)
+
+			expect(book.entries).to eq [person1, person2]
+		end
+	end
+
 
  # => ["joe.bloggs@work.com"]
 	#organises tests
