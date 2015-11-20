@@ -2,7 +2,7 @@ require "date"
 class Person
     attr_accessor :dob, :first_name, :surname, :emails, :phone_numbers
     attr_reader :full_name
-	def initialize (fname = "joe", sname = "bloggs", dob = "21-09-1992")
+	def initialize (fname, sname, dob)
 		#converts string to a date
 		@dob = Date.parse(dob)
 		#capatilize the first letter of string
@@ -37,15 +37,15 @@ class Person
 	end
 
 	def print_details 			
-		
+	
 		puts full_name 
 	    full_name.length.times {print '-'}
 	    puts "\nDate of Birth: " + dob.strftime('%m %B %Y')+"\n"
 	    puts "\nEmail Addresses: "
-	    emails.each do |address| puts "- " + address.to_s + "\n"
+	    emails.each do |address| puts "- " + address + "\n"
 	    end
 	    puts "\nPhone Numbers: "
-	    phone_numbers.each do |number| puts "- " + number.to_s + "\n"
+	    phone_numbers.each do |number| puts "- " + number + "\n"
 	    end
 	    puts "\n"
 
@@ -62,6 +62,17 @@ class FamilyMember < Person
 	attr_accessor :relationship
 	def initialize (*args, relationship)
 		@relationship = relationship
+		#calls constructor from the parent class "Person"
 		super(*args)
+	end
+end
+
+class AddressBook < Person
+	def initialize (*args)
+		super(*args)
+	end
+
+	def add
+
 	end
 end
