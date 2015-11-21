@@ -1,5 +1,7 @@
 require "date"
 class Person
+  #creates getter and setter methods for user to
+  #read and rewrite the value of each instance variable
     attr_accessor :dob, :first_name, :surname, :emails, :phone_numbers
     attr_reader :full_name
 	def initialize (fname, sname, dob)
@@ -27,6 +29,7 @@ class Person
 		@phone_numbers << phone_numbers
 	end
 
+  #removes email by index no
 	def remove_email(index_no)
 		emails.delete_at(index_no)
 	end
@@ -69,11 +72,18 @@ end
 
 class AddressBook 
 	attr_accessor :entries
-	def initialize 
-		@entries = []
+	def initialize   
+		@entries = [] 
 	end
 
 	def add(person)
 		@entries << person
+	end
+
+	def list
+    puts "Address Book"
+    "Address Book".length.times {|i| print '-'}
+    entries.each_with_index {|details, i| print "\nEntry #{i+1}: #{details}"}
+    puts "\n"
 	end
 end

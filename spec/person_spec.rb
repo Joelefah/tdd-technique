@@ -51,7 +51,7 @@ describe "Person Class - entries in phonebook" do
 		person = Person.new("joe", "bloggs", "21-09-1992")
 
 		person.add_email "joe@foo.com"
-	    person.add_phone "02012345678"
+	  person.add_phone "02012345678"
 		person.print_details
 	end
 end
@@ -69,19 +69,32 @@ describe "FamilyMember class that inherits from Person" do
 end
 
 describe "Address book - entries" do
-		it "should print names of people in address book" do
-			person1 = Person.new("joe", "bloggs", "21-09-1992")
-			person2 = Person.new("Barry", "bloggs", "21-09-1992")
-			book = AddressBook.new
+	it "should store personal identity in address book" do
+		person1 = Person.new("joe", "bloggs", "21-09-1992")
+		person2 = Person.new("Barry", "bloggs", "21-09-1992")
+		book = AddressBook.new
 
-			expect(book.entries).to eq []
+		expect(book.entries).to eq []
 
-			book.add(person1)
-			book.add(person2)
+		book.add(person1)
+		book.add(person2)
 
-			expect(book.entries).to eq [person1, person2]
-		end
+		expect(book.entries).to eq [person1, person2]
 	end
+
+	it "should list full name of each person stored in address book" do 
+		person1 = Person.new("joe", "bloggs", "21-09-1992")
+    person2 = Person.new("barry", "bloggs", "21-09-1992")
+    person3 = Person.new("pan", "bloggs", "21-09-1992")
+    book = AddressBook.new
+    
+    book.add(person1.full_name)
+    book.add(person2.full_name)
+    book.add(person3.full_name)
+
+    book.list
+	end
+end
 
 
  # => ["joe.bloggs@work.com"]
